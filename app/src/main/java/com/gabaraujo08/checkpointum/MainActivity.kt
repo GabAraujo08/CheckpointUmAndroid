@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.gabaraujo08.checkpointum.screens.LoginScreen
 import com.gabaraujo08.checkpointum.ui.theme.CheckpointUmTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CheckpointUmTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
+                    LoginScreen(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
