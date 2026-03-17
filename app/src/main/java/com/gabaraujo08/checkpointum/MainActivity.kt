@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CheckpointUmTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                   
+
                 }
             }
         }
