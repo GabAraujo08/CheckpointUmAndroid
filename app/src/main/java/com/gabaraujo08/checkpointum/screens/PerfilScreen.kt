@@ -1,6 +1,5 @@
 package com.gabaraujo08.checkpointum.screens
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,19 +17,28 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun PerfilScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun PerfilScreen(
+    modifier: Modifier = Modifier,
+    navController: NavController,
+    nome: String,
+    idade: Int
+) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFF329F6B))
             .padding(32.dp)
     ) {
+
+        // Exibe na tela os dois parâmetros obrigatórios recebidos na navegação:
+        // nome e idade. Isso mostra o uso de múltiplos parâmetros na tela de perfil.
         Text(
-            text = "PERFIL",
+            text = "PERFIL - $nome tem $idade anos",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
+
         Button(
             onClick = { navController.navigate("menu") },
             colors = ButtonDefaults.buttonColors(Color.White),

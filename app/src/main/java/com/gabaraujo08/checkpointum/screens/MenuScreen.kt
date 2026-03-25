@@ -1,7 +1,5 @@
 package com.gabaraujo08.checkpointum.screens
 
-
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -37,14 +35,18 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
+
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.Center)
         ) {
+
+            // Aqui são enviados dois parâmetros obrigatórios para a tela de Perfil:
+            // o nome e a idade. Isso representa a navegação com múltiplos parâmetros.
             Button(
-                onClick = { navController.navigate("perfil") },
+                onClick = { navController.navigate("perfil/Fulano de Tal/27") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)
             ) {
@@ -54,9 +56,13 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
                     color = Color.Blue
                 )
             }
+
             Spacer(modifier = Modifier.height(16.dp))
+
+            // Aqui é enviado um valor para o parâmetro opcional "cliente"
+            // da tela de Pedidos.
             Button(
-                onClick = { navController.navigate("pedidos") },
+                onClick = { navController.navigate("pedidos?cliente=Cliente XPTO") },
                 colors = ButtonDefaults.buttonColors(Color.White),
                 modifier = Modifier.size(width = 200.dp, height = 48.dp)
             ) {
@@ -66,7 +72,9 @@ fun MenuScreen(modifier: Modifier = Modifier, navController: NavController) {
                     color = Color.Blue
                 )
             }
+
             Spacer(modifier = Modifier.height(16.dp))
+
             Button(
                 onClick = { navController.navigate("login") },
                 colors = ButtonDefaults.buttonColors(Color.White),

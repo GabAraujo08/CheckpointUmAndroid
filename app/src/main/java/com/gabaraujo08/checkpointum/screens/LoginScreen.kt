@@ -30,6 +30,7 @@ fun LoginScreen(modifier: Modifier = Modifier, navController: NavController) {
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
+
         Button(
             onClick = { navController.navigate("menu") },
             colors = ButtonDefaults.buttonColors(Color.White),

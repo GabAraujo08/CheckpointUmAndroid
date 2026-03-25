@@ -1,6 +1,5 @@
 package com.gabaraujo08.checkpointum.screens
 
-
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -18,19 +17,23 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun PedidosScreen(modifier: Modifier = Modifier, navController: NavController) {
+fun PedidosScreen(modifier: Modifier = Modifier, navController: NavController, cliente: String?) {
     Box(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFFFA9A9A9))
             .padding(32.dp)
     ) {
+
+        // Exibe na tela o valor recebido no parâmetro opcional "cliente".
+        // Esse valor pode vir da navegação ou assumir o padrão definido na rota.
         Text(
-            text = "PEDIDOS",
+            text = "PEDIDOS - $cliente",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White
         )
+
         Button(
             onClick = { navController.navigate("menu") },
             colors = ButtonDefaults.buttonColors(Color.White),
