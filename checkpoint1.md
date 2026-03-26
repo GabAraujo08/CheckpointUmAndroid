@@ -72,6 +72,75 @@ Ela possui:
 
 #### Navegação realizada
 Ao clicar no botão, a aplicação executa:
+`navController.navigate("menu")`
+
+### 5.2 MenuScreen
+
+A `MenuScreen` funciona como uma tela intermediária, permitindo que o usuário escolha para qual tela deseja ir em seguida.
+
+Ela possui:
+
+- um título indicando que se trata da tela de menu;
+- um botão Perfil;
+- um botão Pedidos;
+- um botão Sair.
+
+A estrutura da tela utiliza um Box como container principal e, dentro dele, um Column centralizado para organizar os botões verticalmente. Também foi utilizado Spacer para criar espaçamento entre os botões.
+
+Navegação realizada para Perfil
+Ao clicar no botão Perfil, a aplicação executa:
+`navController.navigate("perfil/Fulano de Tal/27")`
+
+Nesse caso, a navegação envia dois parâmetros obrigatórios para a próxima tela:
+
+- nome = "Fulano de Tal"
+- idade = 27
+
+### 5.3 PerfilScreen
+
+A `PerfilScreen` é a tela responsável por exibir informações recebidas por parâmetros obrigatórios.
+
+Ela recebe dois parâmetros:
+
+- nome: String
+- idade: Int
+
+Esses valores são enviados pela rota definida na MainActivity:
+`route = "perfil/{nome}/{idade}"`
+
+Na configuração da navegação, os dois argumentos foram declarados explicitamente, sendo nome do tipo String e idade do tipo Int. Depois disso, eles são recuperados a partir de it.arguments.
+
+Além disso, a tela possui um botão Voltar, que executa:
+`navController.navigate("menu")`
+
+### 5.4 PedidosScreen
+
+A `PedidosScreen` é a tela utilizada para demonstrar o uso de parâmetro opcional.
+
+Ela recebe o parâmetro:
+
+- cliente: String?
+
+Na `MainActivity`, a rota foi definida assim:
+`route = "pedidos?cliente={cliente}"
+
+E o argumento foi configurado com valor padrão:
+`
+navArgument("cliente") {
+    defaultValue = "Cliente Genérico"
+}
+`
+Isso significa que, se nenhum valor for informado durante a navegação, a aplicação utilizará automaticamente "Cliente Genérico" como valor padrão.
+
+Na interface, a tela exibe o valor recebido com o seguinte texto:
+`text = "PEDIDOS - $cliente"`
+
+Dessa forma, quando a navegação ocorre com:
+`navController.navigate("pedidos?cliente=Cliente XPTO")`
+a tela apresenta o nome enviado. Caso o parâmetro não seja informado, a tela continua funcionando com o valor padrão definido na rota.
+
+A tela também possui um botão Voltar, que executa:
+`navController.navigate("menu")`
+
 
 ```kotlin
-navController.navigate("menu")
